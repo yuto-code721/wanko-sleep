@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>わんこ - デジタルデトックス・アプリ</title>
+    <style>
+        /* CSS Section */
+        :root {
+            --primary-color: #ff9800;
+            --secondary-color: #fff3e0;
+            --text-color: #5d4037;
+            --bg-color: #ffffff;
+            --accent-color: #5f372b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+            background: rgba(255, 255, 255, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            margin-left: 20px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-coffee {
+            background: var(--accent-color);
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+        }
+
+        .btn-coffee:hover {
+            opacity: 0.9;
+            transform: scale(1.05);
+        }
+
+        /* Hero Section */
+        header {
+            padding: 160px 8% 80px;
+            text-align: center;
+            background: linear-gradient(180deg, var(--secondary-color) 0%, #ffffff 100%);
+        }
+
+        .hero-img {
+            width: 200px;
+            height: auto;
+            margin-bottom: 30px;
+            animation: float 3s ease-in-out infinite;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            color: #795548;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-download {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 35px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+        }
+
+        .btn-download:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 152, 0, 0.4);
+        }
+
+        .btn-download.ios {
+            background: #444;
+            box-shadow: none;
+            cursor: default;
+            opacity: 0.7;
+        }
+
+        /* Features Section */
+        #features {
+            padding: 100px 8%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        #features h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 60px;
+            color: var(--accent-color);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            padding: 50px 30px;
+            background: #fff;
+            border: 2px solid var(--secondary-color);
+            border-radius: 30px;
+            text-align: center;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-color);
+            box-shadow: 0 15px 30px rgba(255, 152, 0, 0.1);
+        }
+
+        .icon-box {
+            font-size: 50px;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            color: var(--accent-color);
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 8%;
+            text-align: center;
+            background: var(--secondary-color);
+            margin-top: 100px;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">わんこ</div>
+        <div class="nav-links">
+            <a href="#features">機能</a>
+            <a href="https://buymeacoffee.com/あなたのID" class="btn-coffee">応援する</a>
+        </div>
+    </nav>
+
+    <header>
+        <div class="hero">
+            <img src="/dog_waiting.png" alt="Wanko" class="hero-img">
+            <h1>スマホを置いて、<br>わんこと過ごそう。</h1>
+            <p>Wanko（わんこ）は、あなたのデジタルデトックスを応援するパートナー。スマホを休ませるほど、わんこが元気に育ちます。</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn-download">Android版をダウンロード</a>
+                <a href="#" class="btn-download ios">iPhone版 (開発中)</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="features">
+        <h2>Wankoでできること</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <span class="icon-box">💰</span>
+                <h3>放置でコイン獲得</h3>
+                <p>スマホを触らない「静かな時間」が報酬に。貯まったコインで新しい仲間を迎えましょう。</p>
+            </div>
+            <div class="feature-card">
+                <span class="icon-box">🔄</span>
+                <h3>GitHub自動更新</h3>
+                <p>アプリのアップデート不要。新しい犬種や季節の衣装が、リポジトリから自動的に届きます。</p>
+            </div>
+            <div class="feature-card">
+                <span class="icon-box">📍</span>
+                <h3>お散歩GPS機能</h3>
+                <p>外に出て歩くと、わんこが宝物を発見！歩いた距離に応じてコインや特別な報酬がもらえます。</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Wanko App Project. Developed by Yuto Yamamoto.</p>
+        <p>Made with ❤️ for a better digital life.</p>
+    </footer>
+
+    <script>
+        // JavaScript Section
+        // スムーズスクロール
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // スクロール時のフェードインアニメーション
+        const observerOptions = {
+            threshold: 0.2
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.style.opacity = "0";
+            card.style.transform = "translateY(30px)";
+            card.style.transition = "all 0.8s ease-out";
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
